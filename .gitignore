@@ -1,0 +1,5 @@
+# Whitelist: ignore everything (all folders included, new-templates/ too),
+# then re-include only the loose CSS files in the repo root.
+*
+!.gitignore
+!/*.css
