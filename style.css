@@ -1113,6 +1113,7 @@ form[name=post] textarea[name=message] {
 }
 
 .legend-tile {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1146,6 +1147,35 @@ form[name=post] textarea[name=message] {
 }
 .legend-tile:hover .legend-icon {
   background: var(--group-color-contrast, var(--color-text));
+}
+
+.legend-tile::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 0.6rem);
+  left: 50%;
+  z-index: 10;
+  padding: 0.4em 0.9em;
+  border-radius: var(--radius-pill);
+  background: var(--group-color-deep, var(--ink));
+  color: var(--group-color-contrast, var(--surface));
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.legend-tile:hover::after,
+.legend-tile:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 .legend-tile[data-icon=shield] {
