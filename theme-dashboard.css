@@ -6995,7 +6995,6 @@ html {
 
 [data-generic=categories] [data-generic=forum-row] {
   border-top-color: color-mix(in oklch, var(--ink) 8%, transparent);
-  border-radius: var(--radius-md);
 }
 [data-generic=categories] [data-generic=forum-row]:hover {
   background-color: color-mix(in oklch, var(--head) 14%, var(--surface));
