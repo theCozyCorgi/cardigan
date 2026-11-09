@@ -241,7 +241,7 @@ svg.wave {
   --glyph-megaphone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3 11 18-5v12L3 14v-3z'/%3E%3Cpath d='M11.6 16.8a3 3 0 1 1-5.8-1.6'/%3E%3C/svg%3E");
   --glyph-lock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='18' height='11' x='3' y='11' rx='2' ry='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'/%3E%3C/svg%3E");
   --glyph-flag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z'/%3E%3Cline x1='4' x2='4' y1='22' y2='15'/%3E%3C/svg%3E");
-  --glyph-user: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3Cpath d='M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662'/%3E%3C/svg%3E");
+  --glyph-user: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
   --glyph-mail: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='20' height='16' x='2' y='4' rx='2'/%3E%3Cpath d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'/%3E%3C/svg%3E");
   --glyph-globe: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20'/%3E%3Cpath d='M2 12h20'/%3E%3C/svg%3E");
   --glyph-sparkle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z'/%3E%3C/svg%3E");
@@ -3752,8 +3752,8 @@ table.table1 tr.row3 td {
 }
 .footer-brothers a,
 .footer-elite a {
+  position: relative;
   display: block;
-  overflow: hidden;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-surface-sunken);
@@ -3765,10 +3765,40 @@ table.table1 tr.row3 td {
   border-color: var(--color-border-strong);
   box-shadow: var(--shadow-md);
 }
+.footer-brothers a[data-tip]::after,
+.footer-elite a[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 0.55rem);
+  left: 50%;
+  z-index: 30;
+  padding: 0.35em 0.85em;
+  border-radius: var(--radius-pill);
+  background: var(--tip-fill, var(--ink));
+  color: var(--tip-ink, var(--surface));
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+.footer-brothers a[data-tip]:hover::after, .footer-brothers a[data-tip]:focus-visible::after,
+.footer-elite a[data-tip]:hover::after,
+.footer-elite a[data-tip]:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
 .footer-brothers img,
 .footer-elite img {
   display: block;
   object-fit: cover;
+  border-radius: inherit;
 }
 
 .footer-brothers {
@@ -6758,6 +6788,35 @@ dfn {
   background: var(--group-color-soft, var(--color-surface-hover));
   color: var(--group-color-deep, var(--ink));
 }
+[data-generic=post-actions] li > a::after,
+[data-generic=post-actions] li > span:not(.fa-li)::after {
+  content: var(--post-tip, none);
+  position: absolute;
+  bottom: calc(100% + 0.55rem);
+  left: 50%;
+  z-index: 30;
+  padding: 0.35em 0.85em;
+  border-radius: var(--radius-pill);
+  background: var(--tip-fill, var(--ink));
+  color: var(--tip-ink, var(--surface));
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+[data-generic=post-actions] li > a:hover::after, [data-generic=post-actions] li > a:focus-visible::after,
+[data-generic=post-actions] li > span:not(.fa-li):hover::after,
+[data-generic=post-actions] li > span:not(.fa-li):focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
 [data-generic=post-actions] li > a:has(> img)::before {
   display: none;
 }
@@ -6770,21 +6829,30 @@ dfn {
 }
 [data-generic=post-actions] .btn-thank {
   --post-glyph: var(--glyph-heart);
+  --post-tip: "Agradecer";
 }
 [data-generic=post-actions] .btn-quote-multi {
   --post-glyph: var(--glyph-quote-plus);
+  --post-tip: "Citar varios";
 }
 [data-generic=post-actions] .btn-quote {
   --post-glyph: var(--glyph-quote);
+  --post-tip: "Citar";
 }
 [data-generic=post-actions] .btn-edit {
   --post-glyph: var(--glyph-pencil);
+  --post-tip: "Editar";
 }
 [data-generic=post-actions] .btn-ip {
   --post-glyph: var(--glyph-info);
+  --post-tip: "Información";
+}
+[data-generic=post-actions] .btn-report {
+  --post-tip: "Reportar";
 }
 [data-generic=post-actions] .btn-delete {
   --post-glyph: var(--glyph-trash);
+  --post-tip: "Eliminar";
 }
 [data-generic=post-actions] .btn-delete a:hover {
   background: color-mix(in oklch, var(--status-danger, red) 16%, var(--surface));
