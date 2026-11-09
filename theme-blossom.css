@@ -242,6 +242,12 @@ i.material-symbols-outlined {
   --glyph-sparkle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z'/%3E%3C/svg%3E");
   --glyph-copy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='14' height='14' x='8' y='8' rx='2' ry='2'/%3E%3Cpath d='M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2'/%3E%3C/svg%3E");
   --glyph-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  --glyph-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z'/%3E%3C/svg%3E");
+  --glyph-quote: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z'/%3E%3Cpath d='M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z'/%3E%3C/svg%3E");
+  --glyph-quote-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='scale(0.78)'%3E%3Cpath d='M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z'/%3E%3Cpath d='M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z'/%3E%3C/g%3E%3Cpath d='M18 14v7'/%3E%3Cpath d='M14.5 17.5h7'/%3E%3C/svg%3E");
+  --glyph-pencil: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z'/%3E%3Cpath d='m15 5 4 4'/%3E%3C/svg%3E");
+  --glyph-trash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6'/%3E%3Cpath d='M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2'/%3E%3C/svg%3E");
+  --glyph-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4'/%3E%3Cpath d='M12 8h.01'/%3E%3C/svg%3E");
   --glyph-filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3'/%3E%3C/svg%3E");
   --glyph-arrow-up-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21 16-4 4-4-4'/%3E%3Cpath d='M17 20V4'/%3E%3Cpath d='m3 8 4-4 4 4'/%3E%3Cpath d='M7 4v16'/%3E%3C/svg%3E");
   --glyph-chevron-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
@@ -1299,6 +1305,22 @@ img[src*="/fa/"][src*=icon_contact_profile] {
   vertical-align: -0.25em;
 }
 
+img[src*="/fa/"][src*=icon_user_profile] {
+  --g: var(--glyph-user);
+  box-sizing: border-box;
+  width: 1.2em;
+  height: 1.2em;
+  min-width: 1.2em;
+  padding: 0;
+  border: 0;
+  object-fit: none;
+  object-position: -9999px 0;
+  background: currentColor;
+  -webkit-mask: var(--g) center/contain no-repeat;
+  mask: var(--g) center/contain no-repeat;
+  vertical-align: -0.25em;
+}
+
 img[src*="/fa/"][src*=icon_contact_pm] {
   --g: var(--glyph-message-square);
   box-sizing: border-box;
@@ -1436,7 +1458,7 @@ img[src*="/fa/"][src*=_lock] {
   color: var(--color-text-faint);
 }
 
-a:has(> img[src*=icon_contact_]) {
+a:has(> img[src*=icon_contact_], > img[src*=icon_user_profile]) {
   display: inline-grid;
   place-items: center;
   width: 2.4rem;
@@ -1449,12 +1471,12 @@ a:has(> img[src*=icon_contact_]) {
   box-shadow: var(--shadow-sm);
   transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
-a:has(> img[src*=icon_contact_]) img {
+a:has(> img[src*=icon_contact_], > img[src*=icon_user_profile]) img {
   width: 1.15rem !important;
   height: 1.15rem !important;
   min-width: 0;
 }
-a:has(> img[src*=icon_contact_]):hover {
+a:has(> img[src*=icon_contact_], > img[src*=icon_user_profile]):hover {
   background: var(--brand);
   color: var(--brand-contrast, var(--color-text));
   transform: translateY(-2px);
@@ -1560,7 +1582,7 @@ a:has(> img[src*=icon_contact_]):hover {
   min-width: 0;
   font-size: var(--text-sm);
 }
-[data-generic=profile-contact] a:has(> img[src*=icon_contact_]) {
+[data-generic=profile-contact] a:has(> img[src*=icon_contact_], > img[src*=icon_user_profile]) {
   width: 100%;
   height: 2.8rem;
   margin: 0;
@@ -1904,11 +1926,12 @@ a:has(> img[src*=icon_contact_]):hover {
 }
 
 dl.codebox {
-  margin: 12px 0;
+  margin: 16px 0;
   overflow: hidden;
-  border: var(--control-border, 1px solid var(--color-border-strong));
-  border-radius: var(--radius-md);
-  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
 }
 dl.codebox > dt {
   display: flex;
@@ -1916,27 +1939,27 @@ dl.codebox > dt {
   justify-content: space-between;
   gap: 12px;
   margin: 0;
-  padding: 0.35rem 0.5rem 0.35rem 0.9rem;
+  padding: 0.5rem 0.75rem 0.5rem 1.1rem;
   border-bottom: 1px solid var(--color-border);
-  background: color-mix(in oklch, var(--color-text) 6%, var(--color-surface-sunken));
   font-family: var(--font-label, inherit);
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: var(--label-case, none);
-  color: var(--color-text-soft);
+  color: var(--color-text-faint);
 }
 dl.codebox > dd {
   margin: 0;
-  padding: 12px 16px;
+  padding: 16px 24px;
   overflow-x: auto;
+  background: color-mix(in oklch, var(--color-text) 3%, var(--color-surface));
 }
 dl.codebox > dd code {
   display: block;
   min-width: max-content;
   font-family: var(--font-mono, ui-monospace, "Cascadia Code", Consolas, monospace);
   font-size: 0.85em;
-  line-height: 1.65;
+  line-height: 1.7;
   white-space: pre;
   tab-size: 2;
   color: var(--color-text);
@@ -1946,10 +1969,10 @@ dl.codebox > dd code {
   display: inline-flex;
   align-items: center;
   gap: 0.4em;
-  padding: 0.25em 0.8em 0.25em 0.6em;
-  border: 0;
+  padding: 0.25em 0.85em 0.25em 0.65em;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
-  background: transparent;
+  background: var(--color-surface);
   color: var(--color-text-soft);
   font: inherit;
   font-size: var(--text-xs);
@@ -1986,10 +2009,13 @@ dl.codebox > dd code {
 .content blockquote cite {
   display: block;
   margin-bottom: 4px;
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
   font-style: normal;
   font-weight: 600;
-  font-size: var(--text-sm);
-  opacity: 0.85;
+  letter-spacing: 0.06em;
+  text-transform: var(--label-case, none);
+  color: var(--color-text-faint);
 }
 
 .forum-desc {
@@ -5182,11 +5208,112 @@ dfn {
 }
 [data-generic=post] .content blockquote,
 [data-generic=post] .content .quote {
+  position: relative;
+  margin: 16px 0;
+  padding: 16px 24px;
+  background: color-mix(in oklch, var(--ink) 3%, var(--surface));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+[data-generic=post] .content blockquote::after,
+[data-generic=post] .content .quote::after {
+  content: "”";
+  position: absolute;
+  top: 0.35rem;
+  right: 1.1rem;
+  font-family: var(--font-display);
+  font-size: 3.6rem;
+  line-height: 1;
+  color: var(--color-border-strong);
+  pointer-events: none;
+}
+[data-generic=post] .content blockquote blockquote,
+[data-generic=post] .content blockquote .quote,
+[data-generic=post] .content .quote blockquote,
+[data-generic=post] .content .quote .quote {
   margin: 12px 0;
   padding: 12px 16px;
-  background: var(--group-color-soft);
-  border: 1px solid var(--group-color-line);
+  background: var(--surface);
   border-radius: var(--radius-md);
+}
+[data-generic=post] .content blockquote blockquote::after,
+[data-generic=post] .content blockquote .quote::after,
+[data-generic=post] .content .quote blockquote::after,
+[data-generic=post] .content .quote .quote::after {
+  display: none;
+}
+[data-generic=post] [data-generic=user-panel] .postprofile-contact a:has(> img) {
+  border: 1px solid var(--group-color-line);
+  background: var(--surface);
+  color: var(--group-color-deep);
+  box-shadow: none;
+}
+[data-generic=post] [data-generic=user-panel] .postprofile-contact a:has(> img):hover {
+  border-color: var(--group-color);
+  background: var(--group-color);
+  color: var(--group-color-contrast, var(--surface));
+}
+
+[data-generic=post-actions] {
+  gap: 0.15rem;
+  padding: 0.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+[data-generic=post-actions] li a,
+[data-generic=post-actions] li span {
+  position: relative;
+  width: 2.1rem;
+  height: 2.1rem;
+  min-width: 0;
+  min-height: 0;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  color: color-mix(in oklch, var(--ink) 62%, var(--surface));
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+[data-generic=post-actions] li a i,
+[data-generic=post-actions] li span i {
+  display: none;
+}
+[data-generic=post-actions] li a::before,
+[data-generic=post-actions] li span::before {
+  content: "";
+  width: 1.1rem;
+  height: 1.1rem;
+  background: currentColor;
+  -webkit-mask: var(--post-glyph, var(--glyph-info)) center/contain no-repeat;
+  mask: var(--post-glyph, var(--glyph-info)) center/contain no-repeat;
+}
+[data-generic=post-actions] li a:hover,
+[data-generic=post-actions] li span:hover {
+  background: var(--group-color-soft, var(--color-surface-hover));
+  color: var(--group-color-deep, var(--ink));
+}
+[data-generic=post-actions] .btn-thank {
+  --post-glyph: var(--glyph-heart);
+}
+[data-generic=post-actions] .btn-quote-multi {
+  --post-glyph: var(--glyph-quote-plus);
+}
+[data-generic=post-actions] .btn-quote {
+  --post-glyph: var(--glyph-quote);
+}
+[data-generic=post-actions] .btn-edit {
+  --post-glyph: var(--glyph-pencil);
+}
+[data-generic=post-actions] .btn-ip {
+  --post-glyph: var(--glyph-info);
+}
+[data-generic=post-actions] .btn-delete {
+  --post-glyph: var(--glyph-trash);
+}
+[data-generic=post-actions] .btn-delete a:hover {
+  background: color-mix(in oklch, var(--status-danger, red) 16%, var(--surface));
+  color: var(--status-danger-deep, var(--status-danger, red));
 }
 
 [data-generic=post-actions] a,
