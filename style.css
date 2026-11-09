@@ -3357,7 +3357,7 @@ table.table1 tr.row3 td {
   box-shadow: none;
 }
 
-.ucp-main > .page-title {
+.ucp-main .page-title {
   margin: 24px 0 8px;
   padding-inline: 0.15em;
   width: fit-content;
@@ -3365,7 +3365,8 @@ table.table1 tr.row3 td {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
-.ucp-main > .panel {
+.ucp-main .panel,
+.ucp-main .followers_block {
   margin: 0 0 16px;
   padding: 16px 24px;
   border: var(--card-border, 1px solid var(--color-border));
@@ -3373,21 +3374,26 @@ table.table1 tr.row3 td {
   background: var(--surface);
   box-shadow: var(--card-shadow, none);
   color: var(--ink);
+  overflow-x: auto;
 }
-.ucp-main > .panel > .inner > :first-child {
+.ucp-main .panel > .inner > :first-child,
+.ucp-main .followers_block > .inner > :first-child {
   margin-top: 0;
 }
-.ucp-main > .panel > .inner > p {
+.ucp-main .panel > .inner > p,
+.ucp-main .followers_block > .inner > p {
   margin: 0 0 12px;
   font-size: var(--text-sm);
 }
-.ucp-main > .panel fieldset {
+.ucp-main .panel fieldset,
+.ucp-main .followers_block fieldset {
   min-width: 0;
   margin: 0;
   padding: 0;
   border: 0;
 }
-.ucp-main > .panel dl {
+.ucp-main .panel dl,
+.ucp-main .followers_block dl {
   display: grid;
   grid-template-columns: minmax(8rem, 13rem) minmax(0, 1fr);
   gap: 4px 16px;
@@ -3396,16 +3402,20 @@ table.table1 tr.row3 td {
   padding: 12px 0;
   border-top: 1px solid var(--color-border);
 }
-.ucp-main > .panel dl:first-child {
+.ucp-main .panel dl:first-child,
+.ucp-main .followers_block dl:first-child {
   border-top: 0;
 }
 @media (max-width: 40rem) {
-  .ucp-main > .panel dl {
+  .ucp-main .panel dl,
+  .ucp-main .followers_block dl {
     grid-template-columns: minmax(0, 1fr);
   }
 }
-.ucp-main > .panel dt,
-.ucp-main > .panel dt label {
+.ucp-main .panel dt,
+.ucp-main .panel dt label,
+.ucp-main .followers_block dt,
+.ucp-main .followers_block dt label {
   margin: 0;
   font-family: var(--font-label, inherit);
   font-size: var(--text-xs);
@@ -3414,30 +3424,90 @@ table.table1 tr.row3 td {
   text-transform: var(--label-case, none);
   color: var(--color-text-soft);
 }
-.ucp-main > .panel dd {
+.ucp-main .panel dd,
+.ucp-main .followers_block dd {
   min-width: 0;
   margin: 0;
   font-size: var(--text-sm);
 }
-.ucp-main > .panel dd form {
+.ucp-main .panel dd form,
+.ucp-main .followers_block dd form {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
 }
-.ucp-main > .panel dd form br {
+.ucp-main .panel dd form br,
+.ucp-main .followers_block dd form br {
   display: none;
 }
-.ucp-main > .panel dd form input.inputbox {
+.ucp-main .panel dd form input.inputbox,
+.ucp-main .followers_block dd form input.inputbox {
   flex: 1 1 12rem;
   width: auto !important;
   max-width: 24rem;
 }
-.ucp-main > .panel table {
+.ucp-main .panel table.table1,
+.ucp-main .followers_block table.table1 {
   width: 100%;
+  border-collapse: collapse;
 }
-.ucp-main > .panel .corners-top,
-.ucp-main > .panel .corners-bottom {
+.ucp-main .panel table.table1 th,
+.ucp-main .followers_block table.table1 th {
+  padding: 0.6em 0.8em;
+  border-bottom: 2px solid var(--color-border);
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-align: start;
+  text-transform: var(--label-case, none);
+  color: var(--color-text-soft);
+}
+.ucp-main .panel table.table1 th a,
+.ucp-main .followers_block table.table1 th a {
+  color: inherit;
+}
+.ucp-main .panel table.table1 td,
+.ucp-main .followers_block table.table1 td {
+  padding: 0.7em 0.8em;
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  vertical-align: middle;
+}
+.ucp-main .panel table.table1 tbody tr:first-child td,
+.ucp-main .followers_block table.table1 tbody tr:first-child td {
+  border-top: 0;
+}
+.ucp-main .panel table.table1 tbody tr:hover td,
+.ucp-main .followers_block table.table1 tbody tr:hover td {
+  background: var(--color-surface-hover);
+}
+.ucp-main .panel table.table1 td[align=middle],
+.ucp-main .panel table.table1 th[width="10%"],
+.ucp-main .followers_block table.table1 td[align=middle],
+.ucp-main .followers_block table.table1 th[width="10%"] {
+  text-align: center;
+}
+.ucp-main .panel table.table1 .topictitle,
+.ucp-main .followers_block table.table1 .topictitle {
+  font-weight: 600;
+}
+@media (min-width: 700px) {
+  .ucp-main .panel table.table1 .mobile-visible,
+  .ucp-main .followers_block table.table1 .mobile-visible {
+    display: none;
+  }
+}
+.ucp-main .panel.followers_block,
+.ucp-main .followers_block.followers_block {
+  font-size: var(--text-sm);
+  color: var(--color-text-soft);
+}
+.ucp-main .panel .corners-top,
+.ucp-main .panel .corners-bottom,
+.ucp-main .followers_block .corners-top,
+.ucp-main .followers_block .corners-bottom {
   display: none;
 }
 
