@@ -1088,7 +1088,7 @@ form[name=post] textarea[name=message] {
   padding: 0.5em 1.1em;
   border-radius: var(--radius-pill);
   background: var(--head, var(--color-surface-sunken));
-  color: var(--color-text);
+  color: var(--head-ink, var(--color-text));
   font-family: var(--font-label, inherit);
   font-size: var(--text-xs);
   font-weight: 600;
@@ -1490,7 +1490,7 @@ form[name=post] textarea[name=message] {
 }
 [data-generic=forum-row] > dl.icon {
   --badge-tone: var(--head, var(--brand));
-  --badge-ink: var(--ink);
+  --badge-ink: var(--head-ink, var(--ink));
 }
 [data-generic=forum-row] > dl.icon[style*=unread] {
   --badge-tone: var(--brand);
@@ -3181,6 +3181,118 @@ table.table1 tr.row3 td {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: var(--label-case, none);
+}
+
+[data-generic=notice-board] {
+  margin: 0 0 24px;
+  padding: 16px 24px 24px;
+  border: var(--card-border, 1px solid var(--color-border));
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--card-shadow, none);
+}
+[data-generic=notice-board] .notice-board-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 12px;
+  padding: 0.3em 1em 0.3em 0.4em;
+  border-radius: var(--radius-pill);
+  background: var(--head, var(--color-surface-sunken));
+  color: var(--head-ink, var(--color-text));
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: var(--label-case, none);
+}
+[data-generic=notice-board] .notice-board-label::before {
+  content: "";
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: var(--ink) center/100% 100% no-repeat;
+  -webkit-mask: var(--glyph-pin) center/62% no-repeat, linear-gradient(#000 0 0);
+  mask: var(--glyph-pin) center/62% no-repeat, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+[data-generic=notice-board] .notice-board-title {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: var(--text-xl, 1.6rem);
+  font-weight: var(--heading-weight, 600);
+  letter-spacing: var(--heading-tracking, normal);
+  line-height: 1.15;
+}
+[data-generic=notice-board] .notice-board-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 12px;
+}
+[data-generic=notice-board] .notice-board-body > :not(.note) {
+  grid-column: 1/-1;
+}
+[data-generic=notice-board] .note,
+[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) {
+  position: relative;
+  padding: 16px 16px 12px;
+  border: 1px solid var(--tint-primary-line, var(--color-border));
+  border-radius: var(--radius-md);
+  background: var(--tint-primary-soft, var(--color-surface-sunken));
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+[data-generic=notice-board] .note::before,
+[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol)::before {
+  content: "";
+  position: absolute;
+  top: -0.35rem;
+  left: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--tint-primary-deep, var(--ink));
+  box-shadow: 0 0 0 3px var(--color-surface);
+  transform: translateX(-50%);
+}
+[data-generic=notice-board] .note:hover,
+[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol):hover {
+  transform: translateY(-3px);
+}
+[data-generic=notice-board] .note > :first-child,
+[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) > :first-child {
+  margin-top: 0;
+}
+[data-generic=notice-board] .note > :last-child,
+[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) > :last-child {
+  margin-bottom: 0;
+}
+[data-generic=notice-board] .note strong,
+[data-generic=notice-board] .note b,
+[data-generic=notice-board] .note h3,
+[data-generic=notice-board] .note h4,
+[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) strong,
+[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) b,
+[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) h3,
+[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+[data-generic=notice-board] .note:nth-child(3n+2) {
+  border-color: var(--tint-secondary-line, var(--color-border));
+  background: var(--tint-secondary-soft, var(--color-surface-sunken));
+}
+[data-generic=notice-board] .note:nth-child(3n+2)::before {
+  background: var(--tint-secondary-deep, var(--ink));
+}
+[data-generic=notice-board] .note:nth-child(3n) {
+  border-color: var(--tint-tertiary-line, var(--color-border));
+  background: var(--tint-tertiary-soft, var(--color-surface-sunken));
+}
+[data-generic=notice-board] .note:nth-child(3n)::before {
+  background: var(--tint-tertiary-deep, var(--ink));
 }
 
 [data-generic=alert] {
