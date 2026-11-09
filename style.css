@@ -3530,25 +3530,6 @@ table.table1 tr.row3 td {
   transform: translate(-50%, 0);
 }
 
-.admin-notice {
-  margin: 0 0 24px;
-  padding: 16px 24px;
-  border: var(--card-border, 1px solid var(--color-border));
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-  box-shadow: var(--card-shadow, none);
-  color: var(--ink);
-}
-.admin-notice .admin-notice-title {
-  margin: 0 0 8px;
-  font-family: var(--font-display);
-  font-size: var(--text-xl, 1.6rem);
-  line-height: 1.2;
-}
-.admin-notice .admin-notice-body > :last-child {
-  margin-bottom: 0;
-}
-
 [data-generic=alert] {
   border-radius: var(--radius-md);
   padding: 12px 16px;
