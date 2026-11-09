@@ -1523,10 +1523,10 @@ form[name=post] textarea[name=message] {
 
 @keyframes badge-ping {
   0% {
-    box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--badge-tone), 0 0 0 5px color-mix(in oklch, var(--badge-tone) 60%, transparent), 0 12px 20px -12px var(--badge-tone);
+    box-shadow: 0 0 0 calc(var(--badge-gap, 3px) + var(--badge-ring, 2px)) color-mix(in oklch, var(--badge-tone) 60%, transparent);
   }
   70%, 100% {
-    box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--badge-tone), 0 0 0 14px transparent, 0 12px 20px -12px var(--badge-tone);
+    box-shadow: 0 0 0 14px transparent;
   }
 }
 [data-generic=forum-row] dd.forum-badge {
@@ -1536,9 +1536,10 @@ form[name=post] textarea[name=message] {
   width: 2.9rem;
   height: 2.9rem;
   margin: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 24%, color-mix(in oklch, var(--badge-tone) 55%, white), var(--badge-tone) 72%);
-  box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px color-mix(in oklch, var(--badge-tone) 70%, var(--surface)), 0 12px 20px -12px color-mix(in oklch, var(--badge-tone) 90%, black);
+  border: var(--badge-border, 0);
+  border-radius: var(--badge-radius, 50%);
+  background: radial-gradient(circle at 30% 24%, color-mix(in oklch, white var(--badge-gloss, 45%), var(--badge-tone)), var(--badge-tone) 72%);
+  box-shadow: 0 0 0 var(--badge-gap, 3px) var(--surface), 0 0 0 calc(var(--badge-gap, 3px) + var(--badge-ring, 2px)) color-mix(in oklch, var(--badge-tone) 70%, var(--surface)), 0 var(--badge-lift, 12px) 20px -12px color-mix(in oklch, var(--badge-tone) 90%, black);
   animation: var(--badge-animate, none) 2.6s ease-out infinite;
 }
 [data-generic=forum-row] dd.forum-badge::before {
@@ -3200,7 +3201,7 @@ table.table1 tr.row3 td {
   margin-bottom: 12px;
   padding: 0.3em 1em 0.3em 0.4em;
   border-radius: var(--radius-pill);
-  background: var(--head, var(--color-surface-sunken));
+  background: var(--cycle-head-1, var(--head, var(--color-surface-sunken)));
   color: var(--head-ink, var(--color-text));
   font-family: var(--font-label, inherit);
   font-size: var(--text-xs);
@@ -6127,6 +6128,12 @@ body.dark-mode {
   --on-paper: var(--ink);
   --link-color: var(--ink);
   --input-radius: var(--radius-pill);
+  --badge-radius: 34%;
+  --badge-gloss: 0%;
+  --badge-gap: 0px;
+  --badge-ring: 0px;
+  --badge-lift: 0px;
+  --badge-border: 2px solid var(--ink);
   --control-border: 1.5px solid var(--color-border-strong);
   --heading-highlight: linear-gradient(transparent 68%, var(--tint-secondary) 68% 92%, transparent 92%);
   --breadcrumb-fill: var(--tint-tertiary);
