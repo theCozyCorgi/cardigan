@@ -3186,114 +3186,266 @@ table.table1 tr.row3 td {
 
 [data-generic=notice-board] {
   margin: 0 0 24px;
-  padding: 16px 24px 24px;
   border: var(--card-border, 1px solid var(--color-border));
   border-radius: var(--radius-lg);
+  overflow: hidden;
   background: var(--color-surface);
   box-shadow: var(--card-shadow, none);
+  color: var(--ink);
 }
-[data-generic=notice-board] .notice-board-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  margin-bottom: 12px;
-  padding: 0.3em 1em 0.3em 0.4em;
-  border-radius: var(--radius-pill);
-  background: var(--cycle-head-1, var(--head, var(--color-surface-sunken)));
-  color: var(--head-ink, var(--color-text));
+[data-generic=notice-board] .board-wordmark {
+  margin: 0;
+  padding: 16px 24px 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 1.4rem + 4.2vw, 4.6rem);
+  font-weight: var(--heading-weight, 600);
+  letter-spacing: var(--heading-tracking, normal);
+  line-height: 1;
+  text-wrap: balance;
+}
+[data-generic=notice-board] .board-ticker {
+  margin: 12px 0 0;
+  padding: 0.45em 24px;
+  background: var(--tip-fill, var(--ink));
+  color: var(--tip-ink, var(--surface));
   font-family: var(--font-label, inherit);
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
+  text-align: end;
+  text-transform: uppercase;
+}
+[data-generic=notice-board] .board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 24px;
+  padding: 24px;
+  background-color: var(--board-fill, var(--color-surface-sunken));
+  background-image: var(--board-pattern, none);
+  background-size: var(--board-pattern-size, auto);
+}
+[data-generic=notice-board] .board-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px;
+  border: var(--card-border, 1px solid var(--color-border));
+  border-radius: var(--radius-lg);
+  outline: var(--board-edge, 0) solid var(--board-edge-color, transparent);
+  background: var(--surface);
+  box-shadow: var(--card-shadow, none);
+}
+[data-generic=notice-board] .board-card-title {
+  margin: 0;
+  padding: 0.35em 0.8em;
+  border-radius: var(--radius-sm);
+  background: var(--cycle-head-1, var(--head, var(--color-surface-sunken)));
+  color: var(--head-ink, var(--ink));
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-align: center;
   text-transform: var(--label-case, none);
 }
-[data-generic=notice-board] .notice-board-label::before {
-  content: "";
-  width: 1.7rem;
-  height: 1.7rem;
-  border-radius: 50%;
-  background: var(--ink) center/100% 100% no-repeat;
-  -webkit-mask: var(--glyph-pin) center/62% no-repeat, linear-gradient(#000 0 0);
-  mask: var(--glyph-pin) center/62% no-repeat, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+[data-generic=notice-board] [data-kind=profile] img {
+  display: block;
+  flex: 1 1 8rem;
+  width: 100%;
+  min-height: 8rem;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
 }
-[data-generic=notice-board] .notice-board-title {
-  margin: 0 0 12px;
+[data-generic=notice-board] [data-kind=profile] .board-place {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 0 12px;
+  margin-top: auto;
+}
+[data-generic=notice-board] [data-kind=profile] .board-place strong {
   font-family: var(--font-display);
   font-size: var(--text-xl, 1.6rem);
-  font-weight: var(--heading-weight, 600);
-  letter-spacing: var(--heading-tracking, normal);
-  line-height: 1.15;
+  line-height: 1.1;
+}
+[data-generic=notice-board] [data-kind=profile] .board-place small {
+  grid-row: 2;
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+[data-generic=notice-board] [data-kind=profile] .board-place .board-weather {
+  grid-column: 2;
+  grid-row: 1/span 2;
+  display: grid;
+  justify-items: end;
+  gap: 0.2em;
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+[data-generic=notice-board] [data-kind=profile] .board-place .board-weather::before {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  background: currentColor;
+  -webkit-mask: var(--glyph-cloud) center/contain no-repeat;
+  mask: var(--glyph-cloud) center/contain no-repeat;
+}
+[data-generic=notice-board] [data-kind=topics] .board-topic {
+  display: grid;
+  gap: 0.1em;
+  padding: 0.5em 0;
+  border-bottom: 1px solid var(--color-border);
+}
+[data-generic=notice-board] [data-kind=topics] .board-topic:last-child {
+  border-bottom: 0;
+}
+[data-generic=notice-board] [data-kind=topics] .board-topic strong {
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+[data-generic=notice-board] [data-kind=topics] .board-topic span {
+  font-size: var(--text-xs);
+  color: var(--color-text-soft, inherit);
+}
+[data-generic=notice-board] [data-kind=topics] .board-topic em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--brand-deep, var(--ink));
+}
+[data-generic=notice-board] .notice-board-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg, 1.2rem);
+  line-height: 1.2;
 }
 [data-generic=notice-board] .notice-board-body {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  gap: 12px;
-}
-[data-generic=notice-board] .notice-board-body > :not(.note) {
-  grid-column: 1/-1;
-}
-[data-generic=notice-board] .note,
-[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) {
-  position: relative;
-  padding: 16px 16px 12px;
-  border: 1px solid var(--tint-primary-line, var(--color-border));
-  border-radius: var(--radius-md);
-  background: var(--tint-primary-soft, var(--color-surface-sunken));
+  gap: 8px;
+  max-height: 14rem;
+  overflow-y: auto;
   font-size: var(--text-sm);
-  line-height: 1.6;
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  line-height: 1.5;
 }
-[data-generic=notice-board] .note::before,
-[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol)::before {
+[data-generic=notice-board] .notice-board-body p {
+  margin: 0;
+}
+[data-generic=notice-board] .notice-board-body .note {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+[data-generic=notice-board] .notice-board-body .note:last-child {
+  border-bottom: 0;
+}
+[data-generic=notice-board] .notice-board-body .note > strong:first-child {
+  display: block;
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+[data-generic=notice-board] .notice-board-body .note:has(> b:first-child) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 0.8em;
+  align-items: baseline;
+}
+[data-generic=notice-board] .notice-board-body .note > b:first-child {
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+}
+[data-generic=notice-board] [data-kind=staff] .board-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+[data-generic=notice-board] [data-kind=staff] .board-photos a {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition-fast);
+}
+[data-generic=notice-board] [data-kind=staff] .board-photos a:hover {
+  transform: translateY(-2px);
+}
+[data-generic=notice-board] [data-kind=staff] .board-photos img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+[data-generic=notice-board] .board-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 0;
+  padding: 0 24px 16px;
+  list-style: none;
+  background-color: var(--board-fill, var(--color-surface-sunken));
+  background-image: var(--board-pattern, none);
+  background-size: var(--board-pattern-size, auto);
+}
+[data-generic=notice-board] .board-chips a {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: var(--control-border, 1px solid var(--color-border-strong));
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--ink);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+}
+[data-generic=notice-board] .board-chips a::before {
   content: "";
-  position: absolute;
-  top: -0.35rem;
-  left: 50%;
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 50%;
-  background: var(--tint-primary-deep, var(--ink));
-  box-shadow: 0 0 0 3px var(--color-surface);
-  transform: translateX(-50%);
+  width: 1.2rem;
+  height: 1.2rem;
+  background: currentColor;
+  -webkit-mask: var(--chip-glyph) center/contain no-repeat;
+  mask: var(--chip-glyph) center/contain no-repeat;
 }
-[data-generic=notice-board] .note:hover,
-[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol):hover {
+[data-generic=notice-board] .board-chips a:hover {
   transform: translateY(-3px);
+  background: var(--brand);
+  color: var(--brand-contrast, var(--ink));
 }
-[data-generic=notice-board] .note > :first-child,
-[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) > :first-child {
-  margin-top: 0;
+[data-generic=notice-board] .board-chips a[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 0.55rem);
+  left: 50%;
+  z-index: 30;
+  padding: 0.35em 0.85em;
+  border-radius: var(--radius-pill);
+  background: var(--tip-fill, var(--ink));
+  color: var(--tip-ink, var(--surface));
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
-[data-generic=notice-board] .note > :last-child,
-[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) > :last-child {
-  margin-bottom: 0;
-}
-[data-generic=notice-board] .note strong,
-[data-generic=notice-board] .note b,
-[data-generic=notice-board] .note h3,
-[data-generic=notice-board] .note h4,
-[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) strong,
-[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) b,
-[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) h3,
-[data-generic=notice-board] .notice-board-body > :not(.note):is(p, div, ul, ol) h4 {
-  font-family: var(--font-display);
-  font-weight: 600;
-}
-[data-generic=notice-board] .note:nth-child(3n+2) {
-  border-color: var(--tint-secondary-line, var(--color-border));
-  background: var(--tint-secondary-soft, var(--color-surface-sunken));
-}
-[data-generic=notice-board] .note:nth-child(3n+2)::before {
-  background: var(--tint-secondary-deep, var(--ink));
-}
-[data-generic=notice-board] .note:nth-child(3n) {
-  border-color: var(--tint-tertiary-line, var(--color-border));
-  background: var(--tint-tertiary-soft, var(--color-surface-sunken));
-}
-[data-generic=notice-board] .note:nth-child(3n)::before {
-  background: var(--tint-tertiary-deep, var(--ink));
+[data-generic=notice-board] .board-chips a[data-tip]:hover::after, [data-generic=notice-board] .board-chips a[data-tip]:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 [data-generic=alert] {
