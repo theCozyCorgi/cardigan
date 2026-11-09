@@ -7467,6 +7467,7 @@ html {
 }
 
 [data-generic=categories]:nth-of-type(n),
+[data-generic=widget-box]:nth-of-type(n),
 [data-generic=stat-tile]:nth-of-type(n) {
   --fill: var(--surface);
 }
@@ -8253,18 +8254,49 @@ a.gensmall {
   color: var(--ink);
   text-align: left;
 }
-[data-generic=nav-menu] #notif_list li {
+[data-generic=nav-menu] #notif_list::before {
+  content: var(--notif-title, "Notificaciones");
+  display: block;
+  padding: 0.35rem 0.75rem 0.6rem;
+  font-family: var(--font-display);
+  font-size: var(--text-lg, 1.2rem);
+  font-weight: var(--heading-weight, 600);
+  letter-spacing: var(--heading-tracking, normal);
+}
+[data-generic=nav-menu] #notif_list li:not(.see_all) {
   position: relative;
-  margin: 0;
-  padding: 0.65rem 2rem 0.65rem 0.75rem;
+  margin: 0 0 0.35rem;
+  padding: 0.7rem 2.4rem 0.7rem 3.4rem;
+  border: 1px solid var(--tint-primary-line, var(--color-border));
   border-radius: var(--radius-md);
+  background: var(--tint-primary-soft, color-mix(in oklch, var(--ink) 4%, var(--surface)));
   font-size: var(--text-sm);
   line-height: 1.45;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
 }
-[data-generic=nav-menu] #notif_list li:hover {
-  background: color-mix(in oklch, var(--ink) 6%, var(--surface));
+[data-generic=nav-menu] #notif_list li:not(.see_all):hover {
+  border-color: var(--tint-primary-deep, var(--color-border-strong));
+  transform: translateY(-1px);
 }
-[data-generic=nav-menu] #notif_list li a:not(.delete) {
+[data-generic=nav-menu] #notif_list li:not(.see_all)::before {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--tint-primary-deep, var(--ink)) center/100% 100% no-repeat;
+  -webkit-mask: var(--glyph-bell) center/56% no-repeat, linear-gradient(#000 0 0);
+  mask: var(--glyph-bell) center/56% no-repeat, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+[data-generic=nav-menu] #notif_list li:not(.see_all)[data-notif-type="0"]::before {
+  -webkit-mask-image: var(--glyph-mail), linear-gradient(#000 0 0);
+  mask-image: var(--glyph-mail), linear-gradient(#000 0 0);
+}
+[data-generic=nav-menu] #notif_list li:not(.see_all) a:not(.delete) {
   display: inline;
   padding: 0;
   border-radius: 0;
@@ -8273,40 +8305,70 @@ a.gensmall {
   font-weight: 600;
   text-decoration: none;
 }
-[data-generic=nav-menu] #notif_list li a:not(.delete):hover {
+[data-generic=nav-menu] #notif_list li:not(.see_all) a:not(.delete):hover {
   background: none;
   color: var(--brand-deep, inherit);
 }
+[data-generic=nav-menu] #notif_list .contentText {
+  overflow: visible;
+  white-space: normal;
+}
 [data-generic=nav-menu] #notif_list .contentTime {
-  margin-top: 0.15rem;
-  font-size: var(--text-xs);
+  margin-top: 0.2rem;
+  font-family: var(--font-label, inherit);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
   color: color-mix(in oklch, var(--ink) 70%, var(--surface));
 }
 [data-generic=nav-menu] #notif_list a.delete {
   position: absolute;
-  top: 0.55rem;
-  right: 0.5rem;
-  width: 1.4rem;
-  height: 1.4rem;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
+  background: var(--surface);
   text-align: center;
   line-height: 1.4rem;
   color: color-mix(in oklch, var(--ink) 70%, var(--surface));
+  transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 [data-generic=nav-menu] #notif_list a.delete::before {
   content: "×";
   font-size: 1.1rem;
 }
 [data-generic=nav-menu] #notif_list a.delete:hover {
-  background: color-mix(in oklch, var(--ink) 10%, var(--surface));
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--surface);
 }
 [data-generic=nav-menu] #notif_list li.see_all {
-  margin-top: 2px;
-  padding: 0.6rem 0.75rem;
-  border-top: 1px dashed var(--color-border-strong);
-  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  margin-top: 4px;
+  padding: 0;
+}
+[data-generic=nav-menu] #notif_list li.see_all .fa-li {
+  display: none;
+}
+[data-generic=nav-menu] #notif_list li.see_all a {
+  display: block;
+  padding: 0.6rem 1rem;
+  border: var(--control-border, 1px solid var(--color-border-strong));
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-align: center;
+  text-transform: var(--label-case, none);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+[data-generic=nav-menu] #notif_list li.see_all a:hover {
+  background: var(--brand);
+  color: var(--brand-contrast, var(--ink));
+}
+[data-generic=nav-menu] #notif_list li.see_all:hover {
+  background: none;
 }
 [data-generic=nav-menu] .nav-a11y {
   position: relative;
@@ -8372,16 +8434,24 @@ a.gensmall {
   font-weight: 600;
 }
 [data-generic=nav-menu] .a11y-panel .a11y-reset {
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--color-text-soft);
+  width: 100%;
+  margin-top: 4px;
+  padding: 0.6em 1em;
+  border: var(--control-border, 1px solid var(--color-border-strong));
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-label, inherit);
   font-size: var(--text-xs);
-  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: var(--label-case, none);
   cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 [data-generic=nav-menu] .a11y-panel .a11y-reset:hover {
-  color: var(--brand-deep, var(--ink));
+  background: var(--brand);
+  color: var(--brand-contrast, var(--ink));
 }
 [data-generic=nav-menu] .nav-a11y.open .a11y-panel {
   display: block;
