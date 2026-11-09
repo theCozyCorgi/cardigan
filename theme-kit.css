@@ -3351,6 +3351,97 @@ table.table1 tr.row3 td {
   text-transform: var(--label-case, none);
 }
 
+.panel:has(> .inner > .ucp-main) {
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.ucp-main > .page-title {
+  margin: 24px 0 8px;
+  padding-inline: 0.15em;
+  width: fit-content;
+  background: var(--heading-highlight, none);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.ucp-main > .panel {
+  margin: 0 0 16px;
+  padding: 16px 24px;
+  border: var(--card-border, 1px solid var(--color-border));
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--card-shadow, none);
+  color: var(--ink);
+}
+.ucp-main > .panel > .inner > :first-child {
+  margin-top: 0;
+}
+.ucp-main > .panel > .inner > p {
+  margin: 0 0 12px;
+  font-size: var(--text-sm);
+}
+.ucp-main > .panel fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.ucp-main > .panel dl {
+  display: grid;
+  grid-template-columns: minmax(8rem, 13rem) minmax(0, 1fr);
+  gap: 4px 16px;
+  align-items: center;
+  margin: 0;
+  padding: 12px 0;
+  border-top: 1px solid var(--color-border);
+}
+.ucp-main > .panel dl:first-child {
+  border-top: 0;
+}
+@media (max-width: 40rem) {
+  .ucp-main > .panel dl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.ucp-main > .panel dt,
+.ucp-main > .panel dt label {
+  margin: 0;
+  font-family: var(--font-label, inherit);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: var(--label-case, none);
+  color: var(--color-text-soft);
+}
+.ucp-main > .panel dd {
+  min-width: 0;
+  margin: 0;
+  font-size: var(--text-sm);
+}
+.ucp-main > .panel dd form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.ucp-main > .panel dd form br {
+  display: none;
+}
+.ucp-main > .panel dd form input.inputbox {
+  flex: 1 1 12rem;
+  width: auto !important;
+  max-width: 24rem;
+}
+.ucp-main > .panel table {
+  width: 100%;
+}
+.ucp-main > .panel .corners-top,
+.ucp-main > .panel .corners-bottom {
+  display: none;
+}
+
 #site-desc {
   display: none;
 }
