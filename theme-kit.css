@@ -7087,6 +7087,53 @@ form[data-generic=member-filter] .filter-bar > [data-generic=button] {
   display: none;
 }
 
+#memberlist[data-generic=data-table] td.avatar-mini > a {
+  padding-bottom: 0.15rem;
+  font-size: var(--text-lg, 1.2rem);
+}
+#memberlist[data-generic=data-table] td.avatar-mini > a img {
+  margin-bottom: 0.9rem;
+}
+#memberlist[data-generic=data-table] td.avatar-mini .mobile-visible,
+#memberlist[data-generic=data-table] tbody tr:hover td.avatar-mini .mobile-visible {
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.75rem 1.1rem;
+}
+#memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(2) {
+  display: none;
+}
+#memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(4) {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.4em;
+  margin: 0;
+  padding: 0.35em 0.95em;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+#memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(4) b {
+  display: inline;
+  font-size: 0.62rem;
+}
+#memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(n+5) {
+  margin: 0;
+}
+#memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(n+5) a {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--group-color-line, var(--color-border));
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+#memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(n+5) a:hover {
+  border-color: var(--group-color, var(--color-border-strong));
+  background: var(--group-color, var(--brand));
+  color: var(--group-color-contrast, var(--surface));
+}
+
 :root {
   --soft-lightness: 0.95;
   --line-lightness: 0.82;
@@ -8896,6 +8943,16 @@ a.gensmall {
     line-height: 1.7;
     text-align: start;
   }
+  [data-generic=post] > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) dd.postprofile-info .label {
+    margin-inline-end: 0.35rem;
+    font-size: 0;
+  }
+  [data-generic=post] > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) dd.postprofile-info .label > span {
+    font-size: var(--text-xs);
+  }
+  [data-generic=post] > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) dd.postprofile-info .label > span::after {
+    content: ":";
+  }
 }
 @media (min-width: 960px) {
   [data-generic=post] > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) {
@@ -9014,14 +9071,32 @@ a.gensmall {
   [data-generic=post] > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) dd.postprofile-info * {
     color: oklch(98% 0.01 90deg) !important;
   }
+  [data-generic=post] > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) dd.postprofile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  [data-generic=post] > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) dd.postprofile-info .pf-line {
+    max-width: 100%;
+  }
   [data-generic=post] > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) dd.postprofile-info .label {
     display: inline;
-    margin-inline-end: 0.35em;
+    margin-inline-end: 0.35rem;
+    font-size: 0;
+    opacity: 1;
+  }
+  [data-generic=post] > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) dd.postprofile-info .label > span {
     font-family: var(--font-label, inherit);
-    font-size: 0.58rem;
+    font-size: 0.6rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    opacity: 0.7;
+    opacity: 0.72;
+  }
+  [data-generic=post] > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) dd.postprofile-info .label > span::after {
+    content: ":";
   }
   [data-generic=post] > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) dd.postprofile-contact {
     align-self: end;

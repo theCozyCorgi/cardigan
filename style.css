@@ -7085,3 +7085,50 @@ form[data-generic=member-filter] .filter-bar > [data-generic=button] {
 #memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(n+5) b {
   display: none;
 }
+
+#memberlist[data-generic=data-table] td.avatar-mini > a {
+  padding-bottom: 0.15rem;
+  font-size: var(--text-lg, 1.2rem);
+}
+#memberlist[data-generic=data-table] td.avatar-mini > a img {
+  margin-bottom: 0.9rem;
+}
+#memberlist[data-generic=data-table] td.avatar-mini .mobile-visible,
+#memberlist[data-generic=data-table] tbody tr:hover td.avatar-mini .mobile-visible {
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.75rem 1.1rem;
+}
+#memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(2) {
+  display: none;
+}
+#memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(4) {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.4em;
+  margin: 0;
+  padding: 0.35em 0.95em;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+#memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(4) b {
+  display: inline;
+  font-size: 0.62rem;
+}
+#memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(n+5) {
+  margin: 0;
+}
+#memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(n+5) a {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--group-color-line, var(--color-border));
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+#memberlist[data-generic=data-table] td.avatar-mini .memberlist-info:nth-child(n+5) a:hover {
+  border-color: var(--group-color, var(--color-border-strong));
+  background: var(--group-color, var(--brand));
+  color: var(--group-color-contrast, var(--surface));
+}
