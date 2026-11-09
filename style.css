@@ -3167,6 +3167,7 @@ dl.spoiler.spoiler-visible .spoiler_content {
   border: 0;
 }
 .activity-date-group .table-title {
+  border: 0 !important;
   padding: 16px 24px 8px !important;
   font-size: var(--text-lg, 1.2rem);
 }
@@ -3183,7 +3184,7 @@ dl.spoiler.spoiler-visible .spoiler_content {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: center !important;
   gap: 8px 12px;
   padding: 0.6rem 0.9rem;
   border: 1px solid var(--color-border);
@@ -3216,9 +3217,37 @@ dl.spoiler.spoiler-visible .spoiler_content {
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
+.activity-feed .feed-item .time,
+.activity-feed .feed-item .text {
+  margin: 0;
+  line-height: 1.4;
+}
 .activity-feed .feed-item .text {
   flex: 1 1 14rem;
   min-width: 0;
+}
+.activity-feed .feed-item .text::before {
+  content: "";
+  display: inline-block;
+  width: 1.7rem;
+  height: 1.7rem;
+  margin-inline-end: 0.55em;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: var(--tint-primary-deep, var(--ink));
+  -webkit-mask: var(--activity-glyph, var(--glyph-sparkle)) center/58% no-repeat, linear-gradient(#000 0 0);
+  mask: var(--activity-glyph, var(--glyph-sparkle)) center/58% no-repeat, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.activity-feed .feed-item.activity-type-1 {
+  --activity-glyph: var(--glyph-file-text);
+}
+.activity-feed .feed-item.activity-type-2 {
+  --activity-glyph: var(--glyph-message-circle);
+}
+.activity-feed .feed-item.activity-type-8 {
+  --activity-glyph: var(--glyph-user);
 }
 
 .activity-end {
