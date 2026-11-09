@@ -1401,6 +1401,29 @@ form[name=post] textarea[name=message] {
   --legend-glyph: var(--glyph-house);
 }
 
+[data-widget=whois] .statistics-inline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+[data-widget=whois] #picture_legend {
+  justify-content: center;
+  margin: 16px 0 0;
+  padding: 16px 0 0;
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+body:has([data-widget=whois] .statistics-inline) .statistics:not(.statistics-inline) {
+  display: none;
+}
+
 [data-generic=forum-row] > dl.icon,
 [data-generic=topic-row] > dl.icon,
 [data-generic=pm-row] > dl.icon {
@@ -4491,6 +4514,50 @@ table.table1 tr.row3 td {
   font-size: var(--text-xs);
 }
 
+.footer-unified {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+  padding: 24px;
+  border: var(--card-border, 1px solid var(--color-border));
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--card-shadow, none);
+  color: var(--ink);
+}
+@media (max-width: 52rem) {
+  .footer-unified {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.footer-unified [data-generic=affiliates] {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin: 0;
+}
+.footer-unified .affiliates-panel {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.footer-unified .affiliates-panel + .affiliates-panel {
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+.footer-unified [data-generic=credits] {
+  display: grid;
+  align-content: center;
+  margin: 0;
+  padding: 24px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-sunken);
+  box-shadow: none;
+}
+
 [data-generic=page-header-bar] {
   display: flex;
   flex-direction: column;
@@ -4711,6 +4778,21 @@ form[data-generic=jump-to-forum] [data-generic=button] {
   flex: none;
   min-height: 2.25rem;
   padding-block: 0;
+}
+
+form[data-generic=jump-to-forum] > p.right {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 2px 2px 2px 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  text-align: start;
 }
 
 [data-generic=topic-list] {
@@ -5583,6 +5665,54 @@ form[data-generic=jump-to-forum] [data-generic=button] {
 }
 [data-generic=pm-row] dd.mark {
   flex-shrink: 0;
+}
+
+.pm-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+  margin-bottom: 16px;
+}
+.pm-bar > [data-generic=pm-tabs],
+.pm-bar > .pm-actions {
+  margin: 0;
+}
+
+[data-generic=pm-row] dt > span {
+  margin: 0 !important;
+}
+
+form[name=privmsg_list] > .panel[data-generic=card] > .inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+form[name=privmsg_list] > .panel[data-generic=card] > .inner > p {
+  margin: 0;
+}
+form[name=privmsg_list] > .panel[data-generic=card] > .inner .clear {
+  display: none;
+}
+form[name=privmsg_list] > .panel[data-generic=card] > .inner .right-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+form[name=privmsg_list] > .panel[data-generic=card] > .inner .right-box select {
+  flex: 0 1 16rem;
+  min-width: 0;
+}
+
+.pm-actions.bottom .pm-actions-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
 }
 
 [data-generic=user-group-chip] {
@@ -7695,6 +7825,8 @@ dfn {
 }
 
 [data-generic=post-actions] {
+  width: fit-content;
+  margin-bottom: 8px;
   gap: 0.15rem;
   padding: 0.25rem;
   border: 1px solid var(--color-border);
@@ -8881,6 +9013,17 @@ a.gensmall {
     opacity: 1;
     pointer-events: auto;
     transform: none;
+  }
+  [data-generic=post]:not(:has(.postprofile-info)) > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) dd.postprofile-contact a:has(> img) {
+    border: 1px solid var(--group-color-line, var(--color-border));
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    color: var(--group-color-deep, var(--ink));
+  }
+  [data-generic=post]:not(:has(.postprofile-info)) > .postprofile[data-generic=user-panel]:has(.postprofile-avatar) dd.postprofile-contact a:has(> img):hover {
+    border-color: var(--group-color);
+    background: var(--group-color);
+    color: var(--group-color-contrast, var(--surface));
   }
   [data-generic=post]:not(:has(.postprofile-info)) > .postprofile[data-generic=user-panel]:has(.postprofile-avatar):hover .postprofile-avatar::after {
     opacity: 0;
